@@ -15,6 +15,7 @@ import java.util.UUID;
  * @project brewery
  */
 
+@Deprecated
 @RestController
 @RequestMapping("/api/v1/beer")
 @RequiredArgsConstructor
