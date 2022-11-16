@@ -1,6 +1,8 @@
-package com.tworuszka.brewery.web.services;
+package com.tworuszka.brewery.web.services.v2;
 
 import com.tworuszka.brewery.web.model.BeerDto;
+import com.tworuszka.brewery.web.model.v2.BeerDtoV2;
+import com.tworuszka.brewery.web.model.v2.BeerStyleEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +12,31 @@ import java.util.UUID;
  * @author Michał Tworuszka
  * @project brewery
  */
-@Slf4j
+
 @Service
-public class BeerServiceImpl implements BeerService {
+@Slf4j
+public class BeerServiceV2Impl implements BeerServiceV2 {
     @Override
-    public BeerDto getBeerById(UUID beerId) {
-        return BeerDto.builder()
+    public BeerDtoV2 getBeerById(UUID beerId) {
+        return BeerDtoV2.builder()
                 .id(beerId)
                 .beerName("Desperados")
-                .beerStyle("ALE")
+                .beerStyle(BeerStyleEnum.ALE)
                 .build();
     }
 
     @Override
-    public BeerDto saveNewBeer(BeerDto beerDto) {
-        return BeerDto.builder()
+    public BeerDtoV2 saveNewBeer(BeerDtoV2 beerDto) {
+        return BeerDtoV2.builder()
                 .id(UUID.randomUUID())
                 .beerName("Garage")
-                .beerStyle("IPA")
+                .beerStyle(BeerStyleEnum.IPA)
                 .upc(123456L)
                 .build();
     }
 
     @Override
-    public void updateBeer(UUID beerId, BeerDto beerDto) {
+    public void updateBeer(UUID beerId, BeerDtoV2 beerDto) {
         //todo impl of update method
     }
 
